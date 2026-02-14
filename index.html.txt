@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family: Arial, sans-serif;
+  text-align:center;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  overflow:hidden;
+}
+
+.container {
+  margin-top:100px;
+}
+
+button {
+  padding:12px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#openBtn {
+  background:white;
+  color:#ff4d6d;
+}
+
+#yesBtn {
+  background:#ff4d6d;
+  color:white;
+  margin:10px;
+}
+
+#noBtn {
+  background:gray;
+  color:white;
+  margin:10px;
+  position:relative;
+}
+
+.heart {
+  position:absolute;
+  color:red;
+  font-size:24px;
+  animation:float 4s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(0); opacity:1;}
+  100% {transform: translateY(-600px); opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="page1">
+  <h1>Hey Swathi ❤️</h1>
+  <p>I made something for you...</p>
+  <button id="openBtn" onclick="openPage()">Open 💌</button>
+</div>
+
+<div class="container" id="page2" style="display:none;">
+  <h1>Will you be my Valentine forever? 💖</h1>
+  <button id="yesBtn" onclick="showLove()">Always ❤️</button>
+  <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<script>
+function openPage(){
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="block";
+}
+
+function moveNo(){
+  let btn = document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.top = Math.random()*400 + "px";
+  btn.style.left = Math.random()*400 + "px";
+}
+
+function showLove(){
+  for(let i=0;i<50;i++){
+    let heart = document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left = Math.random()*window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+    document.body.appendChild(heart);
+  }
+}
+</script>
+
+</body>
+</html>
